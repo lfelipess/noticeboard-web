@@ -1,0 +1,32 @@
+<div style="width: 400px; margin: auto;" class="text-center" >
+    <h5 *ngIf="isReadOnly">Detalhes do Aviso</h5>
+    <h3 *ngIf="!isReadOnly">Editar Aviso</h3>
+    <form>
+        <div class="form-group">
+            <label for="name">Título do aviso</label>
+            <input type="text" class="form-control" id="title" required [(ngModel)]="notice.title" name="title" [readonly]="isReadOnly">
+            <span *ngIf="titleNull" style="color: red;">Informe o título do aviso</span>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Descrição do aviso</label>
+            <textarea rows="3" class="form-control" id="description" required [(ngModel)]="notice.description" name="description" [readonly]="isReadOnly"></textarea>
+            <span *ngIf="descNull" style="color: red;">Informe a descrição do aviso</span>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Data de publicação</label>
+            <input type="text" class="form-control" id="publishDate" required [(ngModel)]="notice.publishDate" name="publishDate" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Data de visualização</label>
+            <input type="text" class="form-control" id="visualizationDate" required [(ngModel)]="notice.visualizationDate" name="visualizationDate" readonly>
+        </div>
+
+        <div class="text-center"> 
+            <button *ngIf="!isReadOnly" type="submit" class="btn btn-success" (click)="editNotice(notice)">Salvar alterações</button>
+            <button style="margin-left: 10px;" type="button" class="btn btn-danger" routerLink="" routerLinkActive="active">Voltar</button>
+        </div>
+    </form>
+</div>

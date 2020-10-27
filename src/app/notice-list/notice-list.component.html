@@ -1,0 +1,26 @@
+<div class="panel panel-default ml-5 mr-5">
+    <div>
+        <table class="table table-hover">
+            <thead thead-light>
+                <tr>
+                    <th>Título</th>
+                    <th>Visualizado?</th>
+                    <th class="">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let notice of notices | async">
+                    <td style="width: 75%;" (click)="details(notice.id)">{{notice.title}}</td>
+                    <td (click)="details(notice.id)">{{notice.visualizationDate != null ? 'Sim' : 'Não'}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="editNotice(notice.id)">Editar</button>
+                        <button style="margin-left: 5px;" class="btn btn-danger" (click)="deleteNotice(notice.id)">Excluir</button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center"> 
+    <button class="btn btn-primary" routerLink="create" routerLinkActive="active">Adicionar aviso</button>
+    </div>
+</div>

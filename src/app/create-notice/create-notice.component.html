@@ -1,0 +1,21 @@
+<div style="width: 400px; margin: auto;" class="text-center" >
+    <h5>Adicionar um aviso</h5>
+    <form [formGroup]="formNotice" (ngSubmit)="save()">
+        <div class="form-group">
+            <label for="name">Título do aviso</label>
+            <input type="text" formControlName="title" class="form-control" id="title" required [(ngModel)]="notice.title" name="title" maxlength="100">
+            <span *ngIf="titleNull" style="color: red;">Informe o título do aviso</span>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Descrição do aviso</label>
+            <textarea class="form-control" formControlName="description" id="description" required [(ngModel)]="notice.description" name="description"></textarea>
+            <span *ngIf="descNull" style="color: red;">Informe a descrição do aviso</span>
+        </div>
+
+        <div class="text-center"> 
+            <button type="submit" class="btn btn-success">Adicionar</button>
+            <button style="margin-left: 10px;" type="button" class="btn btn-danger" routerLink="" routerLinkActive="active">Voltar</button>
+        </div>
+    </form>
+</div>
